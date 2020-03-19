@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Gathering') {
             steps {
-                echo 'Building..'
+                echo 'Gathering APIs...'
             }
         }
-        stage('Test') {
+        stage('Checking APIs updates') {
             steps {
-                echo 'Testing..'
+                echo 'Checking if there are any updates within the API definition files'
             }
         }
-        stage('Deploy') {
+        stage('Transformation into Markdown') {
             steps {
-                echo 'Deploying....'
+                echo 'Calling docker image to transform the APIs into Markdown'
             }
         }
     }
