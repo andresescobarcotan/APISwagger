@@ -7,10 +7,16 @@ pipeline {
                 git url: 'https://github.com/andresescobarcotan/APISwagger.git'
                 script {
                   sh ''' 
-                      mkdir workspace
-                      mkdir files
-                      mv *.json files/
-                      ls files/
+                     DIR_1="workspace/"
+                     DIR_2="files/"
+                     if [! -d "$DIR_1" ]; then
+                        mkdir workspace
+                     fi
+                     if [! -d "$DIR_2" ]; then
+                        mkdir files
+                     fi
+                     mv *.json files/
+                     ls files/
                      '''
                 }    
                 
