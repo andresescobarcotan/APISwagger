@@ -10,7 +10,6 @@ pipeline {
                       mkdir workspace
                       mkdir files
                       mv *.json files/
-                      mv *.yaml files/
                       ls files/
                      '''
                 }    
