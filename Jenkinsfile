@@ -6,7 +6,13 @@ pipeline {
                 echo 'Gathering APIs'
                 git url: 'https://github.com/andresescobarcotan/APISwagger.git'
                 script {
-                  sh 'dir *.json'
+                  sh ' 
+                      mkdir workspace
+                      mkdir files
+                      mv *.json files/
+                      mv *.yaml files/
+                      ls files/
+                     '
                 }    
                 
             }
