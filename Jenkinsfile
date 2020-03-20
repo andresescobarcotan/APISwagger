@@ -1,18 +1,29 @@
-node {
-    stage('Gathering') {
-        echo 'Gathering APIs'
-        checkout scm
-        def browsers = ['chrome', 'firefox']
-        for (int i = 0; i < browsers.size(); ++i) {
-            echo "Testing the ${browsers[i]} browser"
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v $HOME/.m2:/root/.m2'
         }
     }
+    stages {
+        stage('Gathering') {
+            steps {
+                sh 'mvn -B'
+                echo 'Gathering APIs'
+                checkout scm
+            }
+        }
+        stage('Checking APIs updates') {
+            steps {
+                echo 'Checking if there are any updates within the API definition files'
+            }
+        }
     
-    stage('Checking APIs updates') {
-        echo 'Checking if there are any updates within the API definition files'
-    }
-    
-    stage('Transformation into Markdown') {
-        echo 'Calling docker image to transform the APIs into Markdown'
+        stage('Transformation into Markdown') {
+            steps {
+                echo 'Calling docker image to transform the APIs into Markdown'
+            }
+        }
+
     }
 }
