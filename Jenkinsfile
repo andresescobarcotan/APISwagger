@@ -42,7 +42,6 @@ pipeline {
                     git push origin draft
                 '''
             }
-            }
         }
     }
 }
