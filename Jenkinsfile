@@ -9,14 +9,15 @@ pipeline {
                   sh ''' 
                      DIR_1="workspace/"
                      DIR_2="files/"
-                     if [! -d "$DIR_1" ]; then
+                     if [ ! -d "$DIR_1" ]; then
                         mkdir workspace
                      fi
-                     if [! -d "$DIR_2" ]; then
+                     if [ ! -d "$DIR_2" ]; then
                         mkdir files
                      fi
                      mv *.json files/
                      ls files/
+                     cat files/bookflix.json
                      '''
                 }    
                 
