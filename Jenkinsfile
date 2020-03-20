@@ -35,7 +35,6 @@ pipeline {
             steps {
                 echo 'Calling docker image to transform the APIs into Markdown'
                 git url 'https://github.com/andresescobarcotan/APISwagger.git'
-                git branch draft
                 sh '''
                     git add files/bookflix.json
                     git commit -m 'Bookflix into draft'
