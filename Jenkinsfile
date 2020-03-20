@@ -6,10 +6,7 @@ pipeline {
                 echo 'Gathering APIs'
                 git url: 'https://github.com/andresescobarcotan/APISwagger.git'
                 script {
-                    bat 'dir *.json'
-                    bat 'mkdir files'
-                    bat 'mv *.json files/'
-                    bat 'dir files/'
+                  sh 'dir *.json'
                 }    
                 
             }
