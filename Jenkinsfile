@@ -35,15 +35,12 @@ pipeline {
             agent {
              docker {
                 image 'widdershins'
-                args '-p 3000:3000'
                 }
             }
             steps {
                 echo 'Calling docker image to transform the APIs into Markdown'
-                script {
-                    docker.build("widdershins").withRun(){
-                        sh 'echo inside widdershins'   
-                    }
+                docker.build("widdershins").withRun(){
+                sh 'echo inside widdershins'    
                 }
             }
         }
