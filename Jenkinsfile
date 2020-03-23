@@ -35,9 +35,8 @@ pipeline {
             steps {
                 echo 'Calling docker image to transform the APIs into Markdown'
                 sh '''
-                    git add files/bookflix.json
-                    git commit -m 'Bookflix into draft'
-                    git push origin draft
+                    docker build -t widdershins .
+                    docker run widdershins
                 '''
             }
         }
