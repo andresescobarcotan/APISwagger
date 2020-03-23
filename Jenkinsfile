@@ -34,10 +34,11 @@ pipeline {
         stage('Transformation into Markdown') {
             steps {
                 echo 'Calling docker image to transform the APIs into Markdown'
-                sh '''
-                    docker build -t widdershins .
-                    docker run widdershins
-                '''
+                script {
+                    docker.build("widdershins").withRun(){
+                        sh 'echo inside widdershins'   
+                    }
+                }
             }
         }
     }
