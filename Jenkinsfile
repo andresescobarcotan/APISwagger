@@ -1,18 +1,47 @@
-node {
-    stage('Gathering') {
-        echo 'Gathering APIs'
-        git url: 'https://github.com/andresescobarcotan/APISwagger.git'
-        def browsers = ['chrome', 'firefox']
-        for (int i = 0; i < browsers.size(); ++i) {
-            echo "Testing the ${browsers[i]} browser"
+pipeline {
+    agent any
+    stages {
+        stage('Gathering') {
+            steps {
+                echo 'Gathering APIs'
+                git url: 'https://github.com/andresescobarcotan/APISwagger.git'
+                script {
+                  sh ''' 
+                     DIR_1="workspace/"
+                     DIR_2="files/"
+                     if [ ! -d "$DIR_1" ]; then
+                        mkdir workspace
+                     fi
+                     if [ ! -d "$DIR_2" ]; then
+                        mkdir files
+                     fi
+                     mv *.json files/
+                     ls files/
+                     cat files/bookflix.json
+                     '''
+                }    
+                
+            }
         }
-    }
     
-    stage('Checking APIs updates') {
-        echo 'Checking if there are any updates within the API definition files'
-    }
-    
-    stage('Transformation into Markdown') {
-        echo 'Calling docker image to transform the APIs into Markdown'
+        stage('Checking APIs updates') {
+            steps {
+                echo 'Checking if there are any updates within the API definition files'
+            }
+        }
+        
+        stage('Transformation into Markdown') {
+            agent {
+             docker {
+                image 'widdershins'
+                }
+            }
+            steps {
+                echo 'Calling docker image to transform the APIs into Markdown'
+                docker.build("widdershins").withRun(){
+                sh 'echo inside widdershins'    
+                }
+            }
+        }
     }
 }
