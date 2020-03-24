@@ -1,7 +1,7 @@
 node {
     stage('Gathering') {
         echo 'Gathering APIs'
-        checkout scm
+        git url: 'https://github.com/andresescobarcotan/APISwagger.git'
         def browsers = ['chrome', 'firefox']
         for (int i = 0; i < browsers.size(); ++i) {
             echo "Testing the ${browsers[i]} browser"
