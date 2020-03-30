@@ -6,8 +6,9 @@ pipeline {
 	    	git url: 'https://github.com/andresescobarcotan/APISwagger.git',
 			credentialsId: 'git-personal'
 			
-            echo 'I`ve been called through a webhook'   
-            }
+            echo 'I`ve been called through a webhook'
+	     println(env.payload)            
+	    }
         }
     }
 }
