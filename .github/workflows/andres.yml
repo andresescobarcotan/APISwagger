@@ -19,11 +19,11 @@ jobs:
     - name: Hook_qwerty
       uses: distributhor/workflow-webhook@v1
       env:
-        webhook_url: 'http://80.27.244.138:8080/github-webhook'
+        webhook_url: 'http://80.27.244.138:8080/github-webhook/'
         webhook_secret: 'P4ssw0rd'
         data: '{ "weapon": "hammer", "drink" : "beer" }'
     - name: Webhook
       uses: joelwmale/webhook-action@master
       env:
-        WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        WEBHOOK_URL: 'http://80.27.244.138:8080/github-webhook/'
         data: "'{Hello from github actions!}'"
