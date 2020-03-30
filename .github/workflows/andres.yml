@@ -16,14 +16,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Hook_qwerty
-      uses: distributhor/workflow-webhook@v1
-      env:
-        webhook_url: 'http://81.47.87.161:8080/github-webhook/'
-        webhook_secret: 'P4ssw0rd'
-        data: ''
+    # - name: Hook_qwerty
+    #  uses: distributhor/workflow-webhook@v1
+    #  env:
+    #    webhook_url: 'http://81.47.87.161:8080/github-webhook/'
+    #    webhook_secret: 'P4ssw0rd'
+    #    data: ''
     #- name: Webhook
     #  uses: joelwmale/webhook-action@master
     #  env:
     #    WEBHOOK_URL: 'http://81.47.87.161:8080/github-webhook/'
     #    data: "'{Hello from github actions!}'"
+      - name: Webhook POST Action
+        uses: muinmomin/webhook-action@v1.0.0
+        with:
+          # URL of webhook to send post request to
+          url: 'http://81.47.87.161:8080/github-webhook/'
