@@ -17,11 +17,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Trigger Jenkins Job
-        uses: appleboy/jenkins-action@0.0.1
-        with:
-          url: "http://80.27.244.138:8080/github-webhook/"
-          user: "andresescobarcotan"
-          token: "112bbbc267ec160bcac7d8865490ad55e3"
-          job: "Recolector APIs"
+      #- uses: actions/checkout@v2
+      - name: Webhook
+        uses: joelwmale/webhook-action@master
+        env:
+          WEBHOOK_URL: "http://80.27.244.138:8080/github-webhook/"
+          data: "{'deployment': 'finished', 'project': 'actions'}"
