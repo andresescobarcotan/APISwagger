@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: MasMovil Ticketing API - Inbound (External Systems > MasMovil)
-  description: This is the ticketing-api server.
+  description: This is the ticketing-api server. Another ticker
   contact:
     email: ticketing_squad@masmovil.com
   version: 1.1.8
