@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Authn API
+  title: Authn API Changed
   description: |
     This is the API for authn in MM
     ## Security:
