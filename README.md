@@ -2,4 +2,4 @@
 
 Check implementation for #MMPORTAL-44
 
-Test againa
+If everything is right, this job shouldn't be applied
