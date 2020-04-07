@@ -2,4 +2,4 @@
 
 Check implementation for #MMPORTAL-44
 
-If everything is right, this job shouldn't be applied
+If everything is right HUGO shall do nothing
