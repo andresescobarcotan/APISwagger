@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: >-
-    CAMBIO 15! API que recoge todas las funcionalidades relativas a los recibos gestionados
+    CAMBIO FROM MASTER 15! API que recoge todas las funcionalidades relativas a los recibos gestionados
     por la Mutua Madrileña en sus distintos ramos.
   version: 1.1.0
   title: CROSS - RECIBOS
