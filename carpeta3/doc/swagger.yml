@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: Swagger Petstore Now with candy!
+  title: Swagger Petstore Now with candy full of Sugar!
   license:
     name: MIT
 host: petstore.swagger.io
